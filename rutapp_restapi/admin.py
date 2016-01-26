@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from rutapp_restapi.models import Walk
+
+
+@admin.register(Walk)
+class WalkAdmin(admin.ModelAdmin):
+    pass
