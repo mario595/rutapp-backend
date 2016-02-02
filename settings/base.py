@@ -10,19 +10,29 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+
+from django.core.exceptions import ImproperlyConfigured
+
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+def get_env_variable(var_name):
+    try:
+        return os.environ[var_name]
+    except KeyError as msg:
+        error_msg = 'env var not found: %s' % var_name
+        raise ImproperlyConfigured(error_msg)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'ms(+x4%g&#2#-=&m*oix4r$1$had=8+r-u_a^d59%gl+wq_k+7'
+SECRET_KEY = get_env_variable('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = []
 
