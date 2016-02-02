@@ -5,4 +5,4 @@ from rutapp_restapi.models import Walk
 
 @admin.register(Walk)
 class WalkAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('name', 'difficulty', 'region', 'length')
