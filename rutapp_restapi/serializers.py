@@ -6,7 +6,7 @@ class WalkSummarySerializer(serializers.HyperlinkedModelSerializer):
         model = Walk
         fields = ('id', 'name', 'difficulty')
 
-class WalkSerializer(serializers.HyperlinkedModelSerializer):
+class WalkDetailSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Walk
         fields = ('id', 'name', 'difficulty', 'length', 'region', 'travel_info')

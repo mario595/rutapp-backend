@@ -6,7 +6,7 @@ from rutapp_restapi import views
 
 
 router = routers.DefaultRouter()
-router.register(r'walks', views.WalkSet)
+router.register(r'walks', views.WalkViewSet)
 
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
