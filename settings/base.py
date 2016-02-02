@@ -19,7 +19,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 def get_env_variable(var_name):
     try:
         return os.environ[var_name]
-    except KeyError as msg:
+    except KeyError:
         error_msg = 'env var not found: %s' % var_name
         raise ImproperlyConfigured(error_msg)
 
