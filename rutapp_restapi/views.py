@@ -9,11 +9,13 @@ from rutapp_restapi.models import Walk
 
 class WalkViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Walk.objects.all()
+    
     def get_serializer_class(self):
         if self.action == 'list':
             return serializers.WalkSummarySerializer
         if self.action == 'retrieve':
             return serializers.WalkDetailSerializer
+        
     def initialize_request(self, request, *args, **kwargs):
         if (settings.DEBUG):
             if ('delay' in request.GET):
